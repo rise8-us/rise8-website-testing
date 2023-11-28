@@ -16,6 +16,7 @@
   },
   "homepage": "https://github.com/rise8-us/rise8-website-testing#readme",
   "dependencies": {
+    "chrome-launcher": "^1.1.0",
     "lighthouse": "^11.3.0",
     "playwright": "^1.40.0",
     "playwright-lighthouse": "^3.1.0"
