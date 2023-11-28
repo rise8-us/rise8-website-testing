@@ -64,6 +64,7 @@ const sitePages = ['https://www.rise8.us',
 
 
 test('lighthouse test', async ({ page }) => {
+  test.slow();
 
   const { myCustomLHConfig } = await import('./lh-config-ts');
 
