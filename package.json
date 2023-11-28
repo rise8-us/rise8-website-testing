@@ -1,0 +1,27 @@
+{
+  "name": "rise8-website-testing",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rise8-us/rise8-website-testing.git"
+  },
+  "type": "module",
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rise8-us/rise8-website-testing/issues"
+  },
+  "homepage": "https://github.com/rise8-us/rise8-website-testing#readme",
+  "dependencies": {
+    "lighthouse": "^11.3.0",
+    "playwright": "^1.40.0",
+    "playwright-lighthouse": "^3.1.0"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.40.0",
+    "@types/node": "^20.10.0"
+  }
+}
