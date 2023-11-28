@@ -64,6 +64,7 @@ const sitePages = ['https://www.rise8.us',
 
 
 test('lighthouse test', async ({ page }) => {
+
   test.slow();
 
   const { myCustomLHConfig } = await import('./lh-config-ts');
@@ -71,14 +72,14 @@ test('lighthouse test', async ({ page }) => {
   for (const curPage of sitePages) {
     const chrome = await chromeLauncher.launch();
 
-    const results = await lighthouse(
-        curPage,
-        {
-          port: chrome.port,
-          output: 'json'
-        },
-        myCustomLHConfig
-    );
+    //1 const results = await lighthouse(
+    //     curPage,
+    //     {
+    //       port: chrome.port,
+    //       output: 'json'
+    //     },
+    //     myCustomLHConfig
+    //1 );
     //var urlRegex = /(https?:\/\/[^\s]+)/;
   //   const simplifiedUrl = curPage.replace('https://www.', '').replace('/', '');
   //
@@ -86,7 +87,7 @@ test('lighthouse test', async ({ page }) => {
   //   await writeFile(fileName, results.report);
     chrome.kill();
 
-    await writeFile('resultfile', results.lhr.categories.performance.score.toString());
+    //1await writeFile('resultfile', results.lhr.categories.performance.score.toString());
   }
 
   // const results = await lighthouse(
