@@ -3,6 +3,8 @@ import lighthouse from 'lighthouse';
 //const lighthouse = require('lighthouse/core/index.cjs')
 import * as chromeLauncher from 'chrome-launcher';
 import { writeFile } from 'fs/promises';
+import {appendFile} from "fs";
+import * as fs from "fs";
 
 
 test('has title', async ({ page }) => {
@@ -69,6 +71,8 @@ test('lighthouse test', async ({ page }) => {
 
   const { myCustomLHConfig } = await import('./lh-config-ts');
 
+  var stream = fs.createWriteStream("lighthouse-results.txt", {flags:'a'});
+
   for (const curPage of sitePages) {
     const chrome = await chromeLauncher.launch({
       chromeFlags: [
@@ -79,34 +83,29 @@ test('lighthouse test', async ({ page }) => {
       ]
     });
 
-    //1 const results = await lighthouse(
-    //     curPage,
-    //     {
-    //       port: chrome.port,
-    //       output: 'json'
-    //     },
-    //     myCustomLHConfig
-    //1 );
-    //var urlRegex = /(https?:\/\/[^\s]+)/;
-  //   const simplifiedUrl = curPage.replace('https://www.', '').replace('/', '');
-  //
-  // const fileName = simplifiedUrl.concat('-lh-report.json');
-  //   await writeFile(fileName, results.report);
+    const results = await lighthouse(
+        curPage,
+        {
+          port: chrome.port,
+          output: 'json'
+        },
+        myCustomLHConfig
+    );
+
+    stream.write(curPage);
+    stream.write(":\n\t");
+    stream.write(results.lhr.categories.performance.id.toString());
+    stream.write(":");
+    stream.write(results.lhr.categories.performance.score.toString());
+    stream.write("\n\t");
+    stream.write(results.lhr.categories.accessibility.id.toString());
+    stream.write(":");
+    stream.write(results.lhr.categories.accessibility.score.toString());
+    stream.write("\n");
+
     chrome.kill();
-
-    //1await writeFile('resultfile', results.lhr.categories.performance.score.toString());
   }
+  stream.end();
 
-  // const results = await lighthouse(
-  //     'https://www.rise8.us/about',
-  //     {
-  //       port: chrome.port,
-  //       output: 'html'
-  //     },
-  //     myCustomLHConfig
-  // );
-  //
-  // await writeFile('./lh-local_preset-report2.html', results.report);
-  // chrome.kill();
 });
 
