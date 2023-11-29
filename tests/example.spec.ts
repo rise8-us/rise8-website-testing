@@ -70,7 +70,14 @@ test('lighthouse test', async ({ page }) => {
   const { myCustomLHConfig } = await import('./lh-config-ts');
 
   for (const curPage of sitePages) {
-    //1const chrome = await chromeLauncher.launch();
+    const chrome = await chromeLauncher.launch({
+      chromeFlags: [
+        '--no-first-run',
+        '--headless',
+        '--disable-gpu',
+        '--no-sandbox'
+      ]
+    });
 
     //1 const results = await lighthouse(
     //     curPage,
@@ -85,7 +92,7 @@ test('lighthouse test', async ({ page }) => {
   //
   // const fileName = simplifiedUrl.concat('-lh-report.json');
   //   await writeFile(fileName, results.report);
-    //1chrome.kill();
+    chrome.kill();
 
     //1await writeFile('resultfile', results.lhr.categories.performance.score.toString());
   }
