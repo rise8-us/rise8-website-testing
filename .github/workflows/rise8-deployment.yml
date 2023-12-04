@@ -29,7 +29,7 @@ jobs:
     needs: test
     steps:
       - name: Move to automation directory
-        run: cd automation
+        run: cd ../../../automation
       - name: Run Automated Notification script
         run: ./automationScript.sh
     
