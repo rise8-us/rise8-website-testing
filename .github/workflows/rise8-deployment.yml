@@ -29,5 +29,5 @@ jobs:
     needs: test
     steps:
       - name: Move to automation directory
-        run: ls
+        run: pwd
     
