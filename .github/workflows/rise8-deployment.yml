@@ -28,6 +28,6 @@ jobs:
     runs-on: ubuntu-latest
     needs: test
     steps:
-      - name: Move to automation directory
-        run: pwd
+      - name: Run automation script
+        run: ./automation/automationScript.sh
     
