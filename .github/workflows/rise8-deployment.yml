@@ -35,10 +35,9 @@ jobs:
     needs: test
     steps:
       - uses: actions/checkout@v2
-      - uses: actions/download-artifact@master
+      - uses: actions/download-artifact@v2
         with:
           name: lighthouse-results
-          path: test-results/reports-test.json
       - name: Run automation script
         shell: bash
         env:
