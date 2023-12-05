@@ -13,6 +13,8 @@ JSON_FILE="test-results/reports-test.json"
 
 echo "pwd:\n"
 pwd
+echo "ls:\n"
+ls
 # Get the performance score using jq, convert to float, and multiply by 100
 performance_score=$(jq -r '.categories.performance | .score * 100' "$JSON_FILE")
 echo "Performance score: $performance_score"
