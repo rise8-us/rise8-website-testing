@@ -1,6 +1,5 @@
 #!/bin/bash
 
-echo "slack secret is ${SLACK_SECRET}"
 #SLACK_SECRET="$1"
 #if [ "$SLACK_SECRET" == null ]
 #then
@@ -18,14 +17,14 @@ performance_score=$(jq -r '.categories.performance | .score * 100' "$JSON_FILE")
 # Threshold for the alert
 performance_threshold=90
 
-curl -X POST -H 'Content-type: application/json' --data '{"text":"Hello, World!"}' $SLACK_SECRET
+curl -X POST -H 'Content-type: application/json' --data '{"text":"Hello, World!"}' "$SLACK_SECRET"
 
 # Check if the performance score is below the threshold
 if (( $(echo "$performance_score < $performance_threshold" | bc -l) )); then
     # Generate an alert
     echo "Alert: Performance score is below 90. Current score: $performance_score"
-    curl -X POST -H 'Content-type: application/json' --data "{\"text\":\"Performance failed! score: $performance_score\"}" $SLACK_SECRET
+    curl -X POST -H 'Content-type: application/json' --data "{\"text\":\"Performance failed! score: $performance_score\"}" "$SLACK_SECRET"
 else
     echo "Performance score is above or equal to 90. Current score: $performance_score"
-    curl -X POST -H 'Content-type: application/json' --data '{"text":"Performance passed!"}' ${SLACK_SECRET}
+    curl -X POST -H 'Content-type: application/json' --data '{"text":"Performance passed!"}' "${SLACK_SECRET}"
 fi
