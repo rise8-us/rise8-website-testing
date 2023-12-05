@@ -17,6 +17,8 @@ echo "ls:\n"
 ls
 echo "ls -ltr test-results:\n"
 ls -ltr test-results
+echo "cat test-results/reports-test.json:\n"
+cat test-results/reports-test.json
 # Get the performance score using jq, convert to float, and multiply by 100
 performance_score=$(jq -r '.categories.performance | .score * 100' "$JSON_FILE")
 echo "Performance score: $performance_score"
