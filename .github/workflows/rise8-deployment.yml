@@ -30,10 +30,10 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Run automation script
-        with:
+        shell: bash
+        env:
           slack_secret: ${{ secrets.MESSAGE_TO_DELANEY_SLACK_WEBHOOK }}
         run: |
           chmod +x ./automation/automationScript.sh
           ./automation/automationScript.sh slack_secret
-        shell: bash
     
