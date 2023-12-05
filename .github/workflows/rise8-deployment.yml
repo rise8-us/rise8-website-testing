@@ -41,9 +41,6 @@ jobs:
           path: test-results/reports-test.json
       - name: Run automation script
         shell: bash
-        with:
-          name: lighthouse-results
-          path: test-results/reports-test.json
         env:
           SLACK_SECRET: ${{ secrets.MESSAGE_TO_DELANEY_SLACK_WEBHOOK }}
         run: |
