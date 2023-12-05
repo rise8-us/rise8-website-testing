@@ -1,12 +1,14 @@
 #!/bin/bash
 
-SLACK_SECRET="$1"
-if [ "$SLACK_SECRET" == null ]
-then
-    echo "Please provide a slack secret"
-    exit 1
-fi
-
+echo "slack secret is ${SLACK_SECRET}"
+#SLACK_SECRET="$1"
+#if [ "$SLACK_SECRET" == null ]
+#then
+#    echo "Please provide a slack secret"
+#    exit 1
+#fi
+pwd
+ls
 # Path to the JSON file
 JSON_FILE="./test-results/reports-test.json"
 
