@@ -30,11 +30,11 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Run automation script
+        uses: actions/checkout@v2
         shell: bash
         with:
           name: lighthouse-results
           path: test-results/reports-test.json
-          retention-days: 30
         env:
           SLACK_SECRET: ${{ secrets.MESSAGE_TO_DELANEY_SLACK_WEBHOOK }}
         run: |
