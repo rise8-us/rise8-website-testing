@@ -8,7 +8,7 @@
 #fi
 
 # Path to the JSON file
-JSON_FILE="./test-results/reports-test.json"
+JSON_FILE="test-results/reports-test.json"
 #JSON_FILE=lighthouse-results
 
 # Get the performance score using jq, convert to float, and multiply by 100
