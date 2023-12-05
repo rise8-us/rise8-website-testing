@@ -26,5 +26,5 @@ if (( $(echo "$performance_score < $performance_threshold" | bc -l) )); then
     curl -X POST -H 'Content-type: application/json' --data "{\"text\":\"Performance failed! score: $performance_score\"}" "$SLACK_SECRET"
 else
     echo "Performance score is above or equal to 90. Current score: $performance_score"
-    curl -X POST -H 'Content-type: application/json' --data '{"text":"Performance passed!"}' "${SLACK_SECRET}"
+    curl -X POST -H 'Content-type: application/json' --data "{\"text\":\"Performance score is above or equal to 90. Current score: $performance_score\"}" "${SLACK_SECRET}"
 fi
