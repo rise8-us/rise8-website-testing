@@ -6,6 +6,8 @@ parsed=$(echo "$sitemap" | sed "s/<.*>//g")
 
 LIGHTHOUSE_REPORTS_FOLDER="./lighthouse-reports/"
 threshold=90
+echo "ls -la $LIGHTHOUSE_REPORTS_FOLDER"
+ls -la "$LIGHTHOUSE_REPORTS_FOLDER"
 
 #check the score against the threshold and send a slack message if it fails
 function checkScore() {
