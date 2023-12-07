@@ -16,10 +16,13 @@
   },
   "homepage": "https://github.com/rise8-us/rise8-website-testing#readme",
   "dependencies": {
+    "@slack/bolt": "^3.15.0",
+    "axios": "^1.6.2",
     "chrome-launcher": "^1.1.0",
     "lighthouse": "^11.3.0",
     "playwright": "^1.40.0",
-    "playwright-lighthouse": "^3.1.0"
+    "playwright-lighthouse": "^3.1.0",
+    "xml-js": "^1.6.11"
   },
   "devDependencies": {
     "@playwright/test": "^1.40.0",
