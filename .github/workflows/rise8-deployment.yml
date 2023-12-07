@@ -27,7 +27,7 @@ jobs:
       if: always()
       with:
         name: lighthouse-results
-        path: test-results/reports-test.json
+        path: lighthouse-results/*
         retention-days: 30
   notify:
     timeout-minutes: 60
