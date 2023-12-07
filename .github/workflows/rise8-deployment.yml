@@ -38,7 +38,7 @@ jobs:
       - uses: actions/download-artifact@v2
         with:
           name: lighthouse-reports
-          path: lighthouse-reports/*
+          path: lighthouse-reports/
       - name: Run automation script
         shell: bash
         env:
