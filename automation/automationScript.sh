@@ -4,7 +4,7 @@
 sitemap=$(curl https://www.rise8.us/sitemap.xml)
 parsed=$(echo "$sitemap" | sed "s/<.*>//g")
 
-LIGHTHOUSE_REPORTS_FOLDER="lighthouse-reports/"
+LIGHTHOUSE_REPORTS_FOLDER="./lighthouse-reports/"
 threshold=90
 
 #check the score against the threshold and send a slack message if it fails
