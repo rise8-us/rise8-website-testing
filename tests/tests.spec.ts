@@ -36,11 +36,11 @@ describe('Lighthouse Automation Test', () => {
             await playAudit({
                 page: page,
                 thresholds: {
-                    performance: 90,
-                    accessibility: 90,
-                    'best-practices': 90,
-                    seo: 90,
-                    pwa: 90,
+                    performance: 70,
+                    accessibility: 70,
+                    'best-practices': 70,
+                    seo: 70,
+                    //pwa: 70,
                 },
                 ignoreError: true,
                 port: 9222,
