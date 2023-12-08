@@ -55,9 +55,9 @@ describe('Lighthouse Automation Test', () => {
                     directory: `${process.cwd()}/lighthouse-reports`,
                 },
             });
-            await browser.close();
-            await context.close();
             await page.close();
+            await context.close();
+            await browser.close();
         }
     });
 
