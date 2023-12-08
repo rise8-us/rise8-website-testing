@@ -40,10 +40,10 @@ describe('Lighthouse Automation Test', () => {
 
             await playAudit({
                 page: page,
-                config: {
-                    extends: 'lighthouse:default',
-                    device: 'desktop',
-                },
+                // config: {
+                //     extends: 'lighthouse:default',
+                //     device: 'desktop',
+                // },
                 thresholds: {
                     performance: 70,
                     accessibility: 70,
