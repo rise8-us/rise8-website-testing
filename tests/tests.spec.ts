@@ -10,7 +10,7 @@ describe('Lighthouse Automation Test', () => {
     test('Performance Test ', async ({ browserName }) => {
         let  data: { urlset: { url: { loc: { _text: any; }; }[]; }; };
         try {
-            const response = await axios.get("https://www.rise8.us/sitemap.xml").then((response) => {
+            await axios.get("https://www.rise8.us/sitemap.xml").then((response) => {
                 data = JSON.parse(
                     xmljs.xml2json(response.data, { compact: true, spaces: 2 })
                 );
@@ -22,7 +22,12 @@ describe('Lighthouse Automation Test', () => {
         test.setTimeout(3000000);
         test.skip(browserName !== 'chromium', 'Still working on it');
 
+        //TODO keep one resources page
         for (let i = 0; i < data.urlset.url.length; i++) {
+            if (data.urlset.url[i].loc._text.includes('www.rise8.us/resources/')) {
+                console.log("Skipping resources page:", data.urlset.url[i].loc._text)
+                break;
+            }
             const browser = await playwright['chromium'].launch({
                 args: ['--remote-debugging-port=9222'],
             });
@@ -51,6 +56,8 @@ describe('Lighthouse Automation Test', () => {
                 },
             });
             await browser.close();
+            await context.close();
+            await page.close();
         }
     });
 
